@@ -1,5 +1,7 @@
 <h1><%= @lesson.name%></h1>
 <p><%= @lesson.content%></p>
+<p>Lesson number: <%= @lesson.number%></p>
+
 <form action="/lessons/<%=params[:id]%>/edit">
   <button>Update</button>
 </form>
@@ -11,4 +13,14 @@
 <form action="/lessons/" method="get">
   <button>Return</button>
 </form>
+
+<form action="/lessons/<%= @lesson.id %>/next" method="get">
+  <button>Next Lesson</button>
+</form>
+
+<form action="/lessons/new" method="get">
+  <button>Previous Lesson</button>
+</form>
+
+
 
