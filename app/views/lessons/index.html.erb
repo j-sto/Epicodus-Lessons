@@ -1,0 +1,11 @@
+<h1>Lessons</h1>
+
+<ul>
+  <% @lessons.each do |lesson| %>
+    <li> <a href="/lessons/<%= lesson.id %>"> <%= lesson.name %> </a></li>
+  <% end %>
+</ul>
+
+<form action="/lessons/new" method="get">
+  <button>Create new lesson</button>
+</form>

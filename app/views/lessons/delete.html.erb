@@ -1,0 +1,8 @@
+<h1>Destroy <%= @lesson.name   %></h1>
+<p>Do you want to delete this lesson?</p>
+
+<form action="/lessons/<%= @lesson.id %>" method="get">
+  <button>Return</button>
+</form>
+
+<a href="/lessons/<%= @lesson.id %>" data-method="delete" class="btn">Destroy</a>

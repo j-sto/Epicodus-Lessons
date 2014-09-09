@@ -1,0 +1,22 @@
+<h1>New lesson</h1>
+
+<% if @new_lesson.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @new_lesson.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action="/lessons" method="post">
+  <label for="lesson_name">New lesson name</label>
+  <input id="lesson_name" name="new_lesson[name]" type="text" value="<%= @new_lesson.name %>">
+  <label for="lesson_content">Content</label>
+  <input id="lesson_content" name="new_lesson[content]" type="text">
+  <button>Create new lesson</button>
+</form>
+
+<form action="/lessons/" method="get">
+  <button>Return</button>
+</form>
