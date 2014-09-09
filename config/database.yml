@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  database: epicodus_website_development
+
+test:
+  adapter: postgresql
+  database: epicodus_website_test
+
