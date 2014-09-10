@@ -1,7 +1,8 @@
 <h1>Lessons</h1>
 
 <ul>
-  <% @lessons.each do |lesson| %>
+  <% reordered_lessons = @lessons.sort_by { |hsh| hsh[:number] } %>
+  <% reordered_lessons.each do |lesson| %>
     <li> <a href="/lessons/<%= lesson.id %>"> <%= lesson.name %> </a></li>
   <% end %>
 </ul>

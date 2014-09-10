@@ -5,11 +5,11 @@ class Lesson < ActiveRecord::Base
   belongs_to :section
 
   def next
-    next_lesson = Lesson.where("number > ?", self.number).first
+    next_lesson = Lesson.where("number > ?", self.number).sort_by { |hsh| hsh[:number] }.first
   end
 
   def prev
-    prev_lesson = Lesson.where("number < ?", self.number).last
+    prev_lesson = Lesson.where("number < ?", self.number).sort_by { |hsh| hsh[:number] }.last
   end
 
 end

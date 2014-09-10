@@ -1,7 +1,8 @@
 <h1>Sections</h1>
 
 <ul>
-  <% @sections.each do |section| %>
+  <% reordered_sections = @sections.sort_by { |hsh| hsh[:number] } %>
+  <% reordered_sections.each do |section| %>
     <li> <a href="/sections/<%= section.id %>"> <%= section.name %> </a></li>
   <% end %>
 </ul>

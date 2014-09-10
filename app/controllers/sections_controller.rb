@@ -31,7 +31,37 @@ class SectionsController < ApplicationController
     else
       render("sections/edit.html.erb")
     end
+  end
 
+  def delete
+    @section = Section.find(params[:id])
+  end
+
+  def destroy
+    @section = Section.find(params[:id])
+    @section.destroy
+    @sections = Section.all
+    render("/sections/index.html.erb")
+  end
+
+  def next
+    @section = Section.find(params[:id])
+    @next_section = @section.next
+    if @next_section != nil
+      redirect_to("/sections/#{@next_section.id}")
+    else
+      redirect_to("/sections/#{@section.id}")
+    end
+  end
+
+  def previous
+    @section = Section.find(params[:id])
+    @previous_section = @section.prev
+    if @previous_section != nil
+      redirect_to("/sections/#{@previous_section.id}")
+    else
+       redirect_to("/sections/#{@section.id}")
+    end
   end
 
 end

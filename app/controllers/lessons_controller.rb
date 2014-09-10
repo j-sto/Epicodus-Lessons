@@ -37,13 +37,13 @@ class LessonsController < ApplicationController
 
   def delete
     @lesson = Lesson.find(params[:id])
-    render("/lessons/delete.html.erb")
   end
 
   def destroy
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
-
+    @lessons = Lesson.all
+    render("/lessons/index.html.erb")
   end
 
   def next
