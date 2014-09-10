@@ -50,7 +50,21 @@ class LessonsController < ApplicationController
   def next
     @lesson = Lesson.find(params[:id])
     @next_lesson = @lesson.next
-    redirect_to()
+    if @next_lesson != nil
+     redirect_to("/lessons/#{@next_lesson.id}")
+    else
+      redirect_to("/lessons/#{@lesson.id}")
+    end
+  end
+
+  def previous
+    @lesson = Lesson.find(params[:id])
+    @previous_lesson = @lesson.prev
+    if @previous_lesson != nil
+      redirect_to("/lessons/#{@previous_lesson.id}")
+    else
+       redirect_to("/lessons/#{@lesson.id}")
+    end
   end
 
 end
