@@ -1,0 +1,22 @@
+<h1>New Section</h1>
+
+<% if @new_section.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @new_section.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action="/sections" method="post">
+  <label for="section_name">New Section Name</label>
+  <input id="section_name" name="new_section[name]" type="text" value="<%= @new_section.name %>">
+  <label for="section_number">Section Number</label>
+  <input id="section_number" name="new_section[number]" type="integer" value="<%= @new_section.number %>">
+  <button>Create new section</button>
+</form>
+
+<form action="/sections" method="get">
+  <button>Return</button>
+</form>

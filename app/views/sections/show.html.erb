@@ -1,0 +1,22 @@
+<h1><%= @section.name%></h1>
+<p>section number: <%= @section.number%></p>
+
+<form action="/sections/<%=params[:id]%>/edit">
+  <button>Update</button>
+</form>
+
+<form action="/sections/<%= @section.id %>/delete" method="get">
+  <button>Delete</button>
+</form>
+
+<form action="/sections/" method="get">
+  <button>Return</button>
+</form>
+
+<form action="/sections/<%= @section.id %>/next" method="get">
+  <button>Next section</button>
+</form>
+
+<form action="/sections/<%= @section.id %>/previous" method="get">
+  <button>Previous section</button>
+</form>

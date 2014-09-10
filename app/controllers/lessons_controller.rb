@@ -11,7 +11,6 @@ class LessonsController < ApplicationController
 
   def create
     @new_lesson = Lesson.new(params[:new_lesson])
-
     if @new_lesson.save
       redirect_to("/lessons/")
     else

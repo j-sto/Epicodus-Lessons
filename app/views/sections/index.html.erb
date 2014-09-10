@@ -1,0 +1,13 @@
+<h1>Sections</h1>
+
+<ul>
+  <% @sections.each do |section| %>
+    <li> <a href="/sections/<%= section.id %>"> <%= section.name %> </a></li>
+  <% end %>
+</ul>
+
+<form action="/sections/new" method="get">
+  <button>Create new section</button>
+</form>
+
+
