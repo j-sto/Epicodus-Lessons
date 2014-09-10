@@ -5,6 +5,7 @@ class Section < ActiveRecord::Base
 
   def next
     next_section = Section.where("number > ?", self.number).sort_by { |hsh| hsh[:number] }.first
+
   end
 
   def prev

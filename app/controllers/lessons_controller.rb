@@ -5,6 +5,7 @@ class LessonsController < ApplicationController
   end
 
   def new
+    @sections = Section.all
     @new_lesson = Lesson.new
     render('lessons/new.html.erb')
   end
@@ -23,6 +24,7 @@ class LessonsController < ApplicationController
   end
 
   def edit
+    @sections = Section.all
     @lesson = Lesson.find(params[:id])
   end
 

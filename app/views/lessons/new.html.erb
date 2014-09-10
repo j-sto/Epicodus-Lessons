@@ -17,7 +17,17 @@
   <label for="lesson_number">Lesson Number</label>
   <input id="lesson_number" name="new_lesson[number]" type="text">
   <button>Create new lesson</button>
+
+  <select name="new_lesson[section_id]">
+    <% @sections.each do |section| %>
+      <option value="<%= section.id %>" ><%= section.name %></option>
+    <% end %>
+  </select>
+
 </form>
+
+
+
 
 <form action="/lessons/" method="get">
   <button>Return</button>
