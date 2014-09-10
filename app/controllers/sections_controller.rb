@@ -18,7 +18,20 @@ class SectionsController < ApplicationController
 
   def show
     @section = Section.find(params[:id])
-    # render("sections/<%= @section.id %>")
+  end
+
+  def edit
+    @section = Section.find(params[:id])
+  end
+
+  def update
+     @section = Section.find(params[:id])
+    if @section.update(params[:update_section])
+      redirect_to("/sections/#{@section.id}")
+    else
+      render("sections/edit.html.erb")
+    end
+
   end
 
 end
